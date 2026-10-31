@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="PlantGuard_proyecto.Views.CuidadosPage"
+             Title="Cuidados">
+    <ScrollView>
+        <VerticalStackLayout Padding="24" Spacing="14">
+            <Label Text="Monstera deliciosa" FontSize="26" FontAttributes="Bold" />
+            <Label Text="☀️ Luz" FontAttributes="Bold" />
+            <Label Text="Luz indirecta brillante" />
+            <Label Text="💧 Riego" FontAttributes="Bold" />
+            <Label Text="Cada 7 días aproximadamente" />
+            <Label Text="🌡️ Temperatura" FontAttributes="Bold" />
+            <Label Text="18 - 30 °C" />
+            <Label Text="💦 Humedad" FontAttributes="Bold" />
+            <Label Text="Media / alta" />
+            <Label Text="🌱 Cuidados" FontAttributes="Bold" />
+            <Label Text="Mantener humedad, usar un soporte para trepar y podar hojas viejas." />
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

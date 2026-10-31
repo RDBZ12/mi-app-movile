@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="PlantGuard_proyecto.Views.HistorialPage"
+             Title="Historial">
+    <VerticalStackLayout Padding="18,16" Spacing="12" BackgroundColor="#F6F8F5">
+        <Grid ColumnDefinitions="*,Auto">
+            <VerticalStackLayout Spacing="2">
+                <Label Text="Historial" FontSize="25" FontAttributes="Bold" TextColor="#293B30" />
+                <Label Text="Tus cuidados guardados" FontSize="12" TextColor="#718075" />
+            </VerticalStackLayout>
+            <Label Grid.Column="1" Text="◷" FontSize="23" TextColor="#397755" VerticalOptions="Center" />
+        </Grid>
+        <ScrollView Orientation="Horizontal" HorizontalScrollBarVisibility="Never">
+            <HorizontalStackLayout Spacing="8">
+                <Button Text="Todos" Clicked="FiltroClicked" BackgroundColor="#DCEBDD" TextColor="#285D43" CornerRadius="18" Padding="13,7" />
+                <Button Text="Riego" Clicked="FiltroClicked" BackgroundColor="White" TextColor="#526357" CornerRadius="18" Padding="13,7" />
+                <Button Text="Análisis" Clicked="FiltroClicked" BackgroundColor="White" TextColor="#526357" CornerRadius="18" Padding="13,7" />
+                <Button Text="Fotos" Clicked="FiltroClicked" BackgroundColor="White" TextColor="#526357" CornerRadius="18" Padding="13,7" />
+            </HorizontalStackLayout>
+        </ScrollView>
+        <CollectionView ItemsSource="{Binding Eventos}" VerticalOptions="Fill">
+            <CollectionView.EmptyView>
+                <Label Text="No hay eventos guardados en esta categoría." TextColor="#718075" HorizontalTextAlignment="Center" Padding="24" />
+            </CollectionView.EmptyView>
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Border Stroke="#E1E8E0" StrokeShape="RoundRectangle 9" BackgroundColor="White" Padding="13" Margin="0,0,0,9">
+                        <Grid ColumnDefinitions="40,*" ColumnSpacing="10">
+                            <Border WidthRequest="34" HeightRequest="34" BackgroundColor="#E7F1E8" Stroke="Transparent" StrokeShape="RoundRectangle 8">
+                                <Label Text="{Binding Tipo}" FontSize="9" TextColor="#397755" HorizontalOptions="Center" VerticalOptions="Center" />
+                            </Border>
+                            <VerticalStackLayout Grid.Column="1" Spacing="3">
+                                <Grid ColumnDefinitions="*,Auto">
+                                    <Label Text="{Binding Titulo}" FontAttributes="Bold" TextColor="#293B30" />
+                                    <Label Grid.Column="1" Text="{Binding FechaTexto}" FontSize="10" TextColor="#718075" />
+                                </Grid>
+                                <Label Text="{Binding Descripcion}" FontSize="12" TextColor="#68766C" />
+                            </VerticalStackLayout>
+                        </Grid>
+                    </Border>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </VerticalStackLayout>
+</ContentPage>

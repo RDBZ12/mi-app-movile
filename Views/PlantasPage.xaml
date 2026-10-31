@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="PlantGuard_proyecto.Views.PlantasPage"
+             Title="Mis plantas">
+    <Grid RowDefinitions="Auto,Auto,Auto,*" BackgroundColor="#F6F8F5">
+        <Grid Padding="20,14" ColumnDefinitions="*,Auto">
+            <VerticalStackLayout Spacing="2">
+                <Label Text="Mis plantas" FontSize="25" FontAttributes="Bold" TextColor="#293B30" />
+                <Label Text="Tu colección, siempre a mano" FontSize="12" TextColor="#718075" />
+            </VerticalStackLayout>
+            <Button Grid.Column="1" Text="＋" Clicked="AddPlantClicked" BackgroundColor="#397A57" TextColor="White" CornerRadius="22" WidthRequest="44" HeightRequest="44" Padding="0" />
+        </Grid>
+
+        <SearchBar x:Name="searchBar" Grid.Row="1" Style="{StaticResource PlantSearchBarStyle}" Placeholder="Buscar por nombre o especie" Margin="14,0,14,8" />
+
+        <ScrollView Grid.Row="2" Orientation="Horizontal" HorizontalScrollBarVisibility="Never">
+            <HorizontalStackLayout Spacing="8" Padding="14,0,14,10">
+                <Button Text="Todas" Clicked="OnFilterClicked" BackgroundColor="#DCEBDD" TextColor="#285D43" CornerRadius="18" Padding="13,7" />
+                <Button Text="Saludables" Clicked="OnFilterClicked" BackgroundColor="White" TextColor="#526357" CornerRadius="18" Padding="13,7" />
+                <Button Text="Necesitan atención" Clicked="OnFilterClicked" BackgroundColor="White" TextColor="#526357" CornerRadius="18" Padding="13,7" />
+                <Button Text="Con problemas" Clicked="OnFilterClicked" BackgroundColor="White" TextColor="#526357" CornerRadius="18" Padding="13,7" />
+            </HorizontalStackLayout>
+        </ScrollView>
+
+        <CollectionView x:Name="PlantCollection" Grid.Row="3" Margin="14,0,14,10" SelectionMode="None">
+            <CollectionView.EmptyView>
+                <VerticalStackLayout Padding="24" Spacing="10" VerticalOptions="Center">
+                    <Label Text="Tu colección empieza aquí" FontSize="19" FontAttributes="Bold" TextColor="#293B30" HorizontalTextAlignment="Center" />
+                    <Label Text="Añade una planta para organizar sus cuidados y riegos." TextColor="#718075" HorizontalTextAlignment="Center" />
+                    <Button Text="Añadir una planta" Clicked="AddPlantClicked" BackgroundColor="#397A57" TextColor="White" />
+                </VerticalStackLayout>
+            </CollectionView.EmptyView>
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Border Stroke="#E1E8E0" StrokeThickness="1" Padding="10" Margin="0,0,0,9" StrokeShape="RoundRectangle 9" BackgroundColor="White">
+                        <Border.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="PlantTapped" />
+                        </Border.GestureRecognizers>
+                        <Grid ColumnDefinitions="78,*" ColumnSpacing="12">
+                            <Border HeightRequest="78" WidthRequest="78" Stroke="Transparent" StrokeShape="RoundRectangle 7" BackgroundColor="#E8EFE7">
+                                <Image Source="{Binding Foto}" Aspect="AspectFill" />
+                            </Border>
+                            <VerticalStackLayout Grid.Column="1" Spacing="4" VerticalOptions="Center">
+                                <Label Text="{Binding Nombre}" FontAttributes="Bold" FontSize="16" TextColor="#293B30" />
+                                <Label Text="{Binding Especie.NombreComun}" FontSize="12" TextColor="#718075" />
+                                <Label Text="{Binding Estado}" FontSize="11" TextColor="#397755" />
+                            </VerticalStackLayout>
+                        </Grid>
+                    </Border>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </Grid>
+</ContentPage>

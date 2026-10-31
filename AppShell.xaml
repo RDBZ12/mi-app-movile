@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Shell
+    x:Class="PlantGuard_proyecto.AppShell"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:views="clr-namespace:PlantGuard_proyecto.Views"
+    Shell.FlyoutBehavior="Disabled"
+    Title="PlantGuard">
+
+    <TabBar Shell.TabBarBackgroundColor="#FFFFFF"
+            Shell.TabBarForegroundColor="#397A57"
+            Shell.TabBarUnselectedColor="#87928A"
+            Shell.TabBarTitleColor="#397A57">
+        <ShellContent Title="Inicio" Icon="tab_home.svg" Route="inicio" ContentTemplate="{DataTemplate views:InicioPage}" />
+        <ShellContent Title="Mis plantas" Icon="tab_plants.svg" Route="plantas" ContentTemplate="{DataTemplate views:PlantasPage}" />
+        <ShellContent Title="Identificar" Icon="tab_identify.svg" Route="identificar" ContentTemplate="{DataTemplate views:IdentificarPage}" />
+        <ShellContent Title="Riego" Icon="tab_water.svg" Route="riego" ContentTemplate="{DataTemplate views:RiegoPage}" />
+        <ShellContent Title="Historial" Icon="tab_history.svg" Route="historial" ContentTemplate="{DataTemplate views:HistorialPage}" />
+    </TabBar>
+
+</Shell>

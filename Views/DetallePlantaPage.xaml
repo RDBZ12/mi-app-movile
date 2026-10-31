@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="PlantGuard_proyecto.Views.DetallePlantaPage"
+             Title="Detalle de planta">
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="14" BackgroundColor="#F6F8F5">
+            <Border Padding="0" Stroke="Transparent" StrokeShape="RoundRectangle 10" BackgroundColor="#E8EFE7">
+                <Image Source="{Binding PlantaActual.Foto}" HeightRequest="250" Aspect="AspectFill" />
+            </Border>
+            <Label Text="{Binding PlantaActual.Nombre}" FontSize="25" FontAttributes="Bold" TextColor="#293B30" />
+            <Label Text="{Binding EspecieActual.NombreComun}" FontSize="15" TextColor="#54715D" />
+            <Label Text="{Binding PlantaActual.Estado, StringFormat='Estado: {0}'}" FontSize="14" />
+
+            <Border Padding="15" Stroke="#E1E8E0" StrokeShape="RoundRectangle 9" BackgroundColor="White">
+                <VerticalStackLayout Spacing="8">
+                    <Label Text="Guía de cuidados" FontAttributes="Bold" FontSize="18" TextColor="#293B30" />
+                    <Label Text="{Binding EspecieActual.Luz, StringFormat='Luz: {0}'}" />
+                    <Label Text="{Binding EspecieActual.RiegoFrecuenciaDias, StringFormat='Riego cada {0} días'}" />
+                    <Label Text="{Binding EspecieActual.Temperatura, StringFormat='Temperatura: {0}'}" />
+                    <Label Text="{Binding EspecieActual.Humedad, StringFormat='Humedad: {0}'}" />
+                    <Label Text="{Binding EspecieActual.Cuidados}" TextColor="#5B6B5D" />
+                </VerticalStackLayout>
+            </Border>
+
+            <Grid ColumnDefinitions="*,*" ColumnSpacing="10">
+                <Button Text="Analizar salud" Clicked="AnalisisButtonClicked" BackgroundColor="#397A57" TextColor="White" />
+                <Button Grid.Column="1" Text="Registrar riego" Clicked="RiegoButtonClicked" BackgroundColor="#E3EFE4" TextColor="#285D43" />
+            </Grid>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

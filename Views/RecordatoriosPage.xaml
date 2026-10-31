@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="PlantGuard_proyecto.Views.RecordatoriosPage"
+             Title="Recordatorios">
+    <VerticalStackLayout Padding="24" Spacing="14">
+        <Label Text="Próximos riegos" FontSize="28" FontAttributes="Bold" />
+        <Label Text="🌱 Monstera · Hoy - 8:00 AM" FontSize="18" />
+        <Label Text="🌵 Cactus · Mañana - 9:00 AM" FontSize="18" />
+        <Button Text="Crear recordatorio" BackgroundColor="#1F5F3A" TextColor="White" />
+        <Button Text="Desactivar" BackgroundColor="#DCEEDC" TextColor="#123B24" />
+    </VerticalStackLayout>
+</ContentPage>

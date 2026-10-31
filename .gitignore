@@ -1,0 +1,11 @@
+bin/
+obj/
+.vs/
+.idea/
+*.user
+*.suo
+*.tmp
+*.keystore
+*.jks
+*.p12
+*.mobileprovision
