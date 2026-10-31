@@ -2,12 +2,22 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="PlantGuard_proyecto.Views.RecordatoriosPage"
-             Title="Recordatorios">
-    <VerticalStackLayout Padding="24" Spacing="14">
-        <Label Text="Próximos riegos" FontSize="28" FontAttributes="Bold" />
-        <Label Text="🌱 Monstera · Hoy - 8:00 AM" FontSize="18" />
-        <Label Text="🌵 Cactus · Mañana - 9:00 AM" FontSize="18" />
-        <Button Text="Crear recordatorio" BackgroundColor="#1F5F3A" TextColor="White" />
-        <Button Text="Desactivar" BackgroundColor="#DCEEDC" TextColor="#123B24" />
+             Title="Recordatorios"
+             BackgroundColor="#F6F8F5">
+    <VerticalStackLayout Padding="20,16,20,28" Spacing="10">
+        <Border Padding="14,12" Stroke="#E1E8E0" StrokeShape="RoundRectangle 10" BackgroundColor="White">
+            <Grid ColumnDefinitions="*,Auto">
+                <Label Text="Monstera" FontAttributes="Bold" TextColor="#2B3E31" VerticalOptions="Center" />
+                <Label Grid.Column="1" Text="Hoy · 8:00 AM" FontSize="13" TextColor="#397755" VerticalOptions="Center" />
+            </Grid>
+        </Border>
+        <Border Padding="14,12" Stroke="#E1E8E0" StrokeShape="RoundRectangle 10" BackgroundColor="White">
+            <Grid ColumnDefinitions="*,Auto">
+                <Label Text="Cactus" FontAttributes="Bold" TextColor="#2B3E31" VerticalOptions="Center" />
+                <Label Grid.Column="1" Text="Mañana · 9:00 AM" FontSize="13" TextColor="#397755" VerticalOptions="Center" />
+            </Grid>
+        </Border>
+        <Button Text="Crear recordatorio" BackgroundColor="#397A57" TextColor="White" CornerRadius="8" HeightRequest="48" Margin="0,10,0,0" />
+        <Button Text="Desactivar" BackgroundColor="White" TextColor="#397A57" BorderColor="#397A57" BorderWidth="1" CornerRadius="8" HeightRequest="48" />
     </VerticalStackLayout>
 </ContentPage>

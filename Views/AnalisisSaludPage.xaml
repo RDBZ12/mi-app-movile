@@ -2,19 +2,27 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="PlantGuard_proyecto.Views.AnalisisSaludPage"
-             Title="Análisis de salud">
+             Title="Análisis de salud"
+             BackgroundColor="#F6F8F5">
     <ScrollView>
-        <VerticalStackLayout Padding="24" Spacing="16">
-            <Label Text="Selecciona la planta" FontAttributes="Bold" FontSize="18" />
-            <Picker x:Name="PlantaPicker" Title="Planta" />
-            <Button x:Name="PhotoButton" Text="Tomar fotografía" />
-            <Image x:Name="PreviewImage" HeightRequest="220" IsVisible="False" />
-            <Button x:Name="AnalyzeButton" Text="Analizar" BackgroundColor="#1F5F3A" TextColor="White" />
-            <Label Text="Resultado del análisis" FontAttributes="Bold" FontSize="18" />
-            <Label x:Name="ResultadoLabel" Text="Estado: Posible problema" FontSize="18" />
-            <Label x:Name="ConfianzaLabel" Text="Confianza: 87%" />
-            <Label x:Name="ObservacionLabel" Text="Se detectan síntomas visuales que podrían estar relacionados con estrés de la planta." />
-            <Button x:Name="GuardarAnalisisButton" Text="Guardar análisis" />
+        <VerticalStackLayout Padding="20,16,20,28" Spacing="12">
+            <Border Stroke="#D1D9D1" StrokeShape="RoundRectangle 10" BackgroundColor="White" Padding="12,0">
+                <Picker x:Name="PlantaPicker" Title="Planta" TitleColor="#98A49A" TextColor="#26392E" BackgroundColor="Transparent" />
+            </Border>
+
+            <Button x:Name="PhotoButton" Text="Tomar foto" BackgroundColor="White" TextColor="#397A57" BorderColor="#397A57" BorderWidth="1" CornerRadius="8" />
+            <Image x:Name="PreviewImage" HeightRequest="220" Aspect="AspectFill" IsVisible="False" />
+
+            <Button x:Name="AnalyzeButton" Text="Analizar" BackgroundColor="#397A57" TextColor="White" CornerRadius="8" HeightRequest="48" />
+
+            <Border x:Name="ResultadoCard" IsVisible="False" Padding="16" Stroke="#E1E8E0" StrokeShape="RoundRectangle 12" BackgroundColor="White">
+                <VerticalStackLayout Spacing="6">
+                    <Label x:Name="ResultadoLabel" FontSize="18" FontAttributes="Bold" TextColor="#26392E" />
+                    <Label x:Name="ConfianzaLabel" FontSize="12" TextColor="#718075" />
+                    <Label x:Name="ObservacionLabel" FontSize="14" TextColor="#4A5A4F" />
+                    <Button x:Name="GuardarAnalisisButton" Text="Guardar" BackgroundColor="#E3EFE4" TextColor="#285D43" CornerRadius="8" Margin="0,8,0,0" />
+                </VerticalStackLayout>
+            </Border>
         </VerticalStackLayout>
     </ScrollView>
 </ContentPage>

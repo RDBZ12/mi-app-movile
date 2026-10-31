@@ -2,12 +2,11 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="PlantGuard_proyecto.Views.ResultadoIdentificacionPage"
-             Title="Resultado">
-    <ScrollView>
-        <VerticalStackLayout Padding="24" Spacing="16">
-            <Label Text="Identificación guiada" FontSize="26" FontAttributes="Bold" />
-            <Label Text="La identificación automática requiere un modelo de visión que aún no está incluido. Toma una foto y compara la planta con las especies del catálogo local." />
-            <Button Text="Ir a identificar" BackgroundColor="#1F5F3A" TextColor="White" Clicked="VolverAIdentificarClicked" />
-        </VerticalStackLayout>
-    </ScrollView>
+             Title="Resultado"
+             BackgroundColor="#F6F8F5">
+    <VerticalStackLayout Padding="20,24" Spacing="14" VerticalOptions="Center">
+        <Label Text="Identificación guiada" FontSize="22" FontAttributes="Bold" TextColor="#26392E" HorizontalTextAlignment="Center" />
+        <Label Text="Compara tu foto con las especies del catálogo." FontSize="14" TextColor="#718075" HorizontalTextAlignment="Center" />
+        <Button Text="Ir a identificar" Clicked="VolverAIdentificarClicked" BackgroundColor="#397A57" TextColor="White" CornerRadius="8" HeightRequest="48" />
+    </VerticalStackLayout>
 </ContentPage>

@@ -2,20 +2,37 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="PlantGuard_proyecto.Views.CuidadosPage"
-             Title="Cuidados">
+             Title="Cuidados"
+             BackgroundColor="#F6F8F5">
     <ScrollView>
-        <VerticalStackLayout Padding="24" Spacing="14">
-            <Label Text="Monstera deliciosa" FontSize="26" FontAttributes="Bold" />
-            <Label Text="☀️ Luz" FontAttributes="Bold" />
-            <Label Text="Luz indirecta brillante" />
-            <Label Text="💧 Riego" FontAttributes="Bold" />
-            <Label Text="Cada 7 días aproximadamente" />
-            <Label Text="🌡️ Temperatura" FontAttributes="Bold" />
-            <Label Text="18 - 30 °C" />
-            <Label Text="💦 Humedad" FontAttributes="Bold" />
-            <Label Text="Media / alta" />
-            <Label Text="🌱 Cuidados" FontAttributes="Bold" />
-            <Label Text="Mantener humedad, usar un soporte para trepar y podar hojas viejas." />
+        <VerticalStackLayout Padding="20,12,20,28" Spacing="16">
+            <Label Text="Monstera deliciosa" FontSize="24" FontAttributes="Bold" TextColor="#26392E" />
+
+            <Border Padding="16,6" Stroke="#E1E8E0" StrokeShape="RoundRectangle 12" BackgroundColor="White">
+                <VerticalStackLayout Spacing="0">
+                    <Grid ColumnDefinitions="Auto,*" Padding="0,10">
+                        <Label Text="Luz" TextColor="#718075" />
+                        <Label Grid.Column="1" Text="Indirecta brillante" TextColor="#293B30" HorizontalTextAlignment="End" />
+                    </Grid>
+                    <BoxView HeightRequest="1" Color="#EEF2ED" />
+                    <Grid ColumnDefinitions="Auto,*" Padding="0,10">
+                        <Label Text="Riego" TextColor="#718075" />
+                        <Label Grid.Column="1" Text="Cada 7 días" TextColor="#293B30" HorizontalTextAlignment="End" />
+                    </Grid>
+                    <BoxView HeightRequest="1" Color="#EEF2ED" />
+                    <Grid ColumnDefinitions="Auto,*" Padding="0,10">
+                        <Label Text="Temperatura" TextColor="#718075" />
+                        <Label Grid.Column="1" Text="18 - 30 °C" TextColor="#293B30" HorizontalTextAlignment="End" />
+                    </Grid>
+                    <BoxView HeightRequest="1" Color="#EEF2ED" />
+                    <Grid ColumnDefinitions="Auto,*" Padding="0,10">
+                        <Label Text="Humedad" TextColor="#718075" />
+                        <Label Grid.Column="1" Text="Media - alta" TextColor="#293B30" HorizontalTextAlignment="End" />
+                    </Grid>
+                </VerticalStackLayout>
+            </Border>
+
+            <Label Text="Mantener humedad, usar un soporte para trepar y podar hojas viejas." FontSize="14" TextColor="#4A5A4F" />
         </VerticalStackLayout>
     </ScrollView>
 </ContentPage>

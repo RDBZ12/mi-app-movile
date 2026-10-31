@@ -37,6 +37,7 @@ public partial class AnalisisSaludPage : ContentPage
 
         AnalyzeButton.Clicked += async (_, _) =>
         {
+            ResultadoCard.IsVisible = true;
             ResultadoLabel.Text = "Estado: Posible problema";
             ConfianzaLabel.Text = "Confianza: 87%";
             ObservacionLabel.Text = "Se detectan síntomas visuales que podrían estar relacionados con estrés de la planta.";
