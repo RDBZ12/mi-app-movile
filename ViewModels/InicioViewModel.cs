@@ -18,10 +18,13 @@ public partial class InicioViewModel : ObservableObject
     private string saludo = "Hola";
 
     [ObservableProperty]
+    [NotifyPropertyChangedFor(nameof(TienePlantas))]
     private int plantasCount;
 
+    public bool TienePlantas => PlantasCount > 0;
+
     [ObservableProperty]
-    private string proximoRiego = "Sin riegos programados";
+    private string proximoRiego = "—";
 
     [ObservableProperty]
     private string estadoGeneral = "Sin datos";
@@ -73,7 +76,7 @@ public partial class InicioViewModel : ObservableObject
         }).OrderBy(x => x.Fecha).Take(5).ToList();
 
         ProximoRiego = proximos.Count == 0
-            ? "Agrega una planta para planificar sus riegos"
+            ? "—"
             : proximos[0].TextoFecha;
         ProximosRiegos = new ObservableCollection<RiegoPendiente>(proximos);
 

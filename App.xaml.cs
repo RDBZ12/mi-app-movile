@@ -12,6 +12,7 @@ public partial class App : Application
     public App(DatabaseService databaseService, AuthService authService)
     {
         InitializeComponent();
+        UserAppTheme = AppTheme.Light;
         _databaseService = databaseService;
         _authService = authService;
         _ = _databaseService.InicializarAsync();

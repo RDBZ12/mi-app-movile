@@ -2,43 +2,50 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="PlantGuard_proyecto.Views.IdentificarPage"
-             Title="Identificar">
+             Title="Identificar"
+             Shell.NavBarIsVisible="False"
+             BackgroundColor="#F6F8F5">
     <ScrollView>
-        <VerticalStackLayout Padding="24" Spacing="16">
-            <Label Text="Identifica una especie" FontSize="28" FontAttributes="Bold" TextColor="{StaticResource Primary}" />
-            <Label Text="Fotografía una planta y revisa las coincidencias del catálogo local." TextColor="#68766C" />
-            <Button x:Name="TakePhotoButton" Text="Tomar fotografía" BackgroundColor="#1F5F3A" TextColor="White" />
-            <Button x:Name="SelectPhotoButton" Text="Elegir una fotografía" BackgroundColor="#DCEEDC" TextColor="#123B24" />
-            <Image Source="{Binding FotoSeleccionada}" HeightRequest="240" Aspect="AspectFit" IsVisible="{Binding TieneFoto}" />
+        <VerticalStackLayout Padding="20,20,20,28" Spacing="14">
+            <Label Text="Identificar" FontSize="24" FontAttributes="Bold" TextColor="#26392E" />
+
+            <Grid ColumnDefinitions="*,*" ColumnSpacing="10">
+                <Button x:Name="TakePhotoButton" Text="Cámara" BackgroundColor="#397A57" TextColor="White" CornerRadius="8" />
+                <Button x:Name="SelectPhotoButton" Grid.Column="1" Text="Galería" BackgroundColor="White" TextColor="#397A57" BorderColor="#397A57" BorderWidth="1" CornerRadius="8" />
+            </Grid>
+
+            <Image Source="{Binding FotoSeleccionada}" HeightRequest="220" Aspect="AspectFit" IsVisible="{Binding TieneFoto}" />
             <ActivityIndicator IsRunning="{Binding EstaCargando}" IsVisible="{Binding EstaCargando}" />
-            <Label Text="{Binding Mensaje}" TextColor="#555555" />
-            <Label Text="Revisa las especies y elige la que mejor coincide:" FontAttributes="Bold" TextColor="#293B30" />
-            <SearchBar Style="{StaticResource PlantSearchBarStyle}" Placeholder="Buscar por nombre común o científico" Text="{Binding TextoBusqueda}" />
+            <Label Text="{Binding Mensaje}" FontSize="13" TextColor="#718075" />
+
+            <SearchBar Style="{StaticResource PlantSearchBarStyle}" Placeholder="Buscar especie" Text="{Binding TextoBusqueda}" />
             <CollectionView ItemsSource="{Binding EspeciesFiltradas}"
                             SelectionMode="Single"
                             SelectedItem="{Binding EspecieSeleccionada, Mode=TwoWay}"
                             HeightRequest="260">
                 <CollectionView.EmptyView>
-                    <Label Text="No hay especies que coincidan con la búsqueda." Padding="12" />
+                    <Label Text="Sin resultados" TextColor="#718075" Padding="12" />
                 </CollectionView.EmptyView>
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
-                        <Border Padding="12" Margin="0,0,0,8" Stroke="#DCE4DB" StrokeShape="RoundRectangle 8">
-                            <VerticalStackLayout Spacing="3">
-                                <Label Text="{Binding NombreComun}" FontAttributes="Bold" />
-                                <Label Text="{Binding NombreCientifico}" FontSize="13" TextColor="#666666" />
+                        <Border Padding="12" Margin="0,0,0,8" Stroke="#E1E8E0" StrokeShape="RoundRectangle 10" BackgroundColor="White">
+                            <VerticalStackLayout Spacing="2">
+                                <Label Text="{Binding NombreComun}" FontAttributes="Bold" TextColor="#293B30" />
+                                <Label Text="{Binding NombreCientifico}" FontSize="12" TextColor="#718075" />
                             </VerticalStackLayout>
                         </Border>
                     </DataTemplate>
                 </CollectionView.ItemTemplate>
             </CollectionView>
-            <VerticalStackLayout IsVisible="{Binding TieneEspecieSeleccionada}" Spacing="6">
-                <Label Text="{Binding EspecieSeleccionada.Descripcion}" />
-                <Label Text="{Binding TextoCuidados}" />
+
+            <VerticalStackLayout IsVisible="{Binding TieneEspecieSeleccionada}" Spacing="8">
+                <Label Text="{Binding EspecieSeleccionada.Descripcion}" FontSize="14" TextColor="#4A5A4F" />
+                <Label Text="{Binding TextoCuidados}" FontSize="13" TextColor="#718075" />
                 <Entry Placeholder="Nombre para tu planta (opcional)" Text="{Binding NombrePlanta}" />
             </VerticalStackLayout>
-            <Button x:Name="SavePlantButton" Text="Guardar en mis plantas"
-                    BackgroundColor="#1F5F3A" TextColor="White"
+
+            <Button x:Name="SavePlantButton" Text="Guardar planta"
+                    BackgroundColor="#397A57" TextColor="White" CornerRadius="8"
                     IsEnabled="{Binding PuedeGuardar}" Clicked="GuardarPlantaClicked" />
         </VerticalStackLayout>
     </ScrollView>

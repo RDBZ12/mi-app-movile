@@ -39,7 +39,6 @@ public partial class RiegoPage : ContentPage
         var plantas = PlantList.ItemsSource as IEnumerable<Models.Planta> ?? Enumerable.Empty<Models.Planta>();
         var count = plantas.Count(x => x.SeleccionadaParaRiego);
         SelectionLabel.Text = $"{count} seleccionadas";
-        SummaryLabel.Text = count == 1 ? "1 planta seleccionada" : $"{count} plantas seleccionadas";
     }
 
     private async void AddPlantClicked(object? sender, EventArgs e) => await Shell.Current.GoToAsync("registrar-planta");

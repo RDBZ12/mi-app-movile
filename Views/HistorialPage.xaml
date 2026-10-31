@@ -2,15 +2,11 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="PlantGuard_proyecto.Views.HistorialPage"
-             Title="Historial">
+             Title="Historial"
+             Shell.NavBarIsVisible="False"
+             BackgroundColor="#F6F8F5">
     <VerticalStackLayout Padding="18,16" Spacing="12" BackgroundColor="#F6F8F5">
-        <Grid ColumnDefinitions="*,Auto">
-            <VerticalStackLayout Spacing="2">
-                <Label Text="Historial" FontSize="25" FontAttributes="Bold" TextColor="#293B30" />
-                <Label Text="Tus cuidados guardados" FontSize="12" TextColor="#718075" />
-            </VerticalStackLayout>
-            <Label Grid.Column="1" Text="◷" FontSize="23" TextColor="#397755" VerticalOptions="Center" />
-        </Grid>
+        <Label Text="Historial" FontSize="24" FontAttributes="Bold" TextColor="#26392E" />
         <ScrollView Orientation="Horizontal" HorizontalScrollBarVisibility="Never">
             <HorizontalStackLayout Spacing="8">
                 <Button Text="Todos" Clicked="FiltroClicked" BackgroundColor="#DCEBDD" TextColor="#285D43" CornerRadius="18" Padding="13,7" />
@@ -21,7 +17,7 @@
         </ScrollView>
         <CollectionView ItemsSource="{Binding Eventos}" VerticalOptions="Fill">
             <CollectionView.EmptyView>
-                <Label Text="No hay eventos guardados en esta categoría." TextColor="#718075" HorizontalTextAlignment="Center" Padding="24" />
+                <Label Text="Sin registros" TextColor="#718075" HorizontalTextAlignment="Center" Padding="24" />
             </CollectionView.EmptyView>
             <CollectionView.ItemTemplate>
                 <DataTemplate>

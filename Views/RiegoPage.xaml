@@ -2,33 +2,22 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="PlantGuard_proyecto.Views.RiegoPage"
-             Title="Riego">
-    <ScrollView BackgroundColor="#F6F8F5">
+             Title="Riego"
+             Shell.NavBarIsVisible="False"
+             BackgroundColor="#F6F8F5">
+    <ScrollView>
         <VerticalStackLayout Padding="20,16,20,28" Spacing="16">
-            <Grid ColumnDefinitions="*,Auto">
-                <VerticalStackLayout Spacing="2">
-                    <Label Text="Riego" FontSize="25" FontAttributes="Bold" TextColor="#293B30" />
-                    <Label x:Name="DateLabel" FontSize="12" TextColor="#718075" />
-                </VerticalStackLayout>
-                <Label Grid.Column="1" Text="◷" FontSize="23" TextColor="#397755" VerticalOptions="Center" />
-            </Grid>
+            <VerticalStackLayout Spacing="2">
+                <Label Text="Riego" FontSize="24" FontAttributes="Bold" TextColor="#26392E" />
+                <Label x:Name="DateLabel" FontSize="13" TextColor="#718075" />
+            </VerticalStackLayout>
 
-            <Border Padding="15" Stroke="Transparent" StrokeShape="RoundRectangle 9" BackgroundColor="#E3EFE4">
-                <VerticalStackLayout Spacing="3">
-                    <Label x:Name="SummaryLabel" Text="Selecciona las plantas que regaste" FontAttributes="Bold" TextColor="#294C37" />
-                    <Label Text="El riego quedará guardado en el historial del dispositivo." FontSize="12" TextColor="#557360" />
-                </VerticalStackLayout>
-            </Border>
-
-            <Grid ColumnDefinitions="*,Auto">
-                <Label Text="Plantas" FontSize="18" FontAttributes="Bold" TextColor="#293B30" />
-                <Label x:Name="SelectionLabel" Grid.Column="1" Text="0 seleccionadas" FontSize="12" TextColor="#718075" VerticalOptions="Center" />
-            </Grid>
+            <Label x:Name="SelectionLabel" Text="0 seleccionadas" FontSize="13" TextColor="#718075" />
             <CollectionView x:Name="PlantList" HeightRequest="270" SelectionMode="None">
                 <CollectionView.EmptyView>
                     <VerticalStackLayout Padding="18" Spacing="8">
-                        <Label Text="No tienes plantas todavía." FontAttributes="Bold" HorizontalTextAlignment="Center" />
-                        <Button Text="Añadir una planta" Clicked="AddPlantClicked" />
+                        <Label Text="Aún no hay plantas" FontAttributes="Bold" HorizontalTextAlignment="Center" />
+                        <Button Text="Añadir planta" Clicked="AddPlantClicked" BackgroundColor="#397A57" TextColor="White" CornerRadius="8" />
                     </VerticalStackLayout>
                 </CollectionView.EmptyView>
                 <CollectionView.ItemTemplate>
@@ -49,12 +38,11 @@
 
             <Border Padding="14" Stroke="#E1E8E0" StrokeShape="RoundRectangle 9" BackgroundColor="White">
                 <VerticalStackLayout Spacing="10">
-                    <Label Text="Detalles del riego" FontSize="17" FontAttributes="Bold" TextColor="#293B30" />
                     <Entry x:Name="CantidadEntry" Placeholder="Cantidad por planta (ml)" Keyboard="Numeric" />
                     <Editor x:Name="ObservacionEditor" Placeholder="Observación (opcional)" HeightRequest="85" />
                 </VerticalStackLayout>
             </Border>
-            <Button x:Name="GuardarButton" Text="✓   Registrar riego" BackgroundColor="#397A57" TextColor="White" Clicked="GuardarClicked" />
+            <Button x:Name="GuardarButton" Text="Registrar riego" BackgroundColor="#397A57" TextColor="White" CornerRadius="8" Clicked="GuardarClicked" />
         </VerticalStackLayout>
     </ScrollView>
 </ContentPage>

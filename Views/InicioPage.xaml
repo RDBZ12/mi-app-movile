@@ -2,76 +2,61 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="PlantGuard_proyecto.Views.InicioPage"
-             Title="Inicio">
-    <ScrollView BackgroundColor="#F6F8F5">
-        <VerticalStackLayout Padding="20,16,20,28" Spacing="18">
-            <Grid ColumnDefinitions="*,Auto,Auto" ColumnSpacing="6">
-                <VerticalStackLayout Spacing="2">
-                    <Label Text="PlantGuard" FontSize="24" FontAttributes="Bold" TextColor="{StaticResource Primary}" />
-                    <Label Text="TU COMPAÑERO BOTÁNICO" FontSize="10" CharacterSpacing="1.4" TextColor="#78877B" />
+             Title="Inicio"
+             Shell.NavBarIsVisible="False"
+             BackgroundColor="#F6F8F5">
+    <ScrollView>
+        <VerticalStackLayout Padding="20,20,20,28" Spacing="20">
+
+            <Grid ColumnDefinitions="*,Auto,Auto" ColumnSpacing="8">
+                <VerticalStackLayout Spacing="2" VerticalOptions="Center">
+                    <Label Text="PLANTGUARD" FontSize="11" CharacterSpacing="1.4" TextColor="#78877B" />
+                    <Label Text="{Binding Saludo}" FontSize="24" FontAttributes="Bold" TextColor="#26392E" />
                 </VerticalStackLayout>
                 <Button Grid.Column="1" Text="Salir" Clicked="CerrarSesionClicked" BackgroundColor="Transparent" TextColor="#78877B" FontSize="13" Padding="8,0" HeightRequest="44" />
-                <Button Grid.Column="2" Text="+" Clicked="AgregarPlantaClicked" BackgroundColor="White" TextColor="#347453" CornerRadius="22" WidthRequest="44" HeightRequest="44" Padding="0" />
+                <Button Grid.Column="2" Text="+" Clicked="AgregarPlantaClicked" BackgroundColor="#397A57" TextColor="White" FontSize="22" CornerRadius="22" WidthRequest="44" HeightRequest="44" Padding="0" />
             </Grid>
 
-            <VerticalStackLayout Spacing="4">
-                <Label Text="{Binding Saludo}" FontSize="25" FontAttributes="Bold" TextColor="#26392E" />
-                <Label Text="¿Cómo están tus plantas hoy?" TextColor="#68766C" />
-            </VerticalStackLayout>
-
-            <Border Padding="0" Stroke="#E1E8E0" StrokeShape="RoundRectangle 10" BackgroundColor="White">
-                <Grid RowDefinitions="Auto,Auto" RowSpacing="0">
-                    <Grid ColumnDefinitions="*,Auto" Padding="16,14,16,10">
-                        <VerticalStackLayout Spacing="3">
-                            <Label Text="MI COLECCIÓN" FontSize="10" CharacterSpacing="1" TextColor="#718075" />
-                            <Label Text="{Binding PlantasCount, StringFormat='{}{0} plantas'}" FontSize="24" FontAttributes="Bold" TextColor="#294C37" />
-                        </VerticalStackLayout>
-                        <Button Grid.Column="1" Text="Ver todas" Clicked="MisPlantasClicked" BackgroundColor="Transparent" TextColor="#397755" Padding="8,0" />
-                    </Grid>
-                    <Button Grid.Row="1" Text="＋   Añadir una planta" Clicked="AgregarPlantaClicked" Margin="14,0,14,14" BackgroundColor="#397A57" TextColor="White" CornerRadius="8" />
-                </Grid>
-            </Border>
-
-            <Border Padding="16" Stroke="Transparent" StrokeShape="RoundRectangle 10" BackgroundColor="#E3EFE4">
-                <Grid ColumnDefinitions="Auto,*" ColumnSpacing="12">
-                    <Label Text="◷" FontSize="24" TextColor="#347453" VerticalOptions="Center" />
-                    <VerticalStackLayout Grid.Column="1" Spacing="3">
-                        <Label Text="PRÓXIMO RIEGO" FontSize="10" CharacterSpacing="1" TextColor="#557360" />
-                        <Label Text="{Binding ProximoRiego}" FontSize="17" FontAttributes="Bold" TextColor="#264B35" />
+            <Grid ColumnDefinitions="*,*" ColumnSpacing="12">
+                <Border Padding="16" Stroke="#E1E8E0" StrokeShape="RoundRectangle 12" BackgroundColor="White">
+                    <Border.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="PlantasTapped" />
+                    </Border.GestureRecognizers>
+                    <VerticalStackLayout Spacing="4">
+                        <Label Text="Plantas" FontSize="13" TextColor="#718075" />
+                        <Label Text="{Binding PlantasCount}" FontSize="30" FontAttributes="Bold" TextColor="#294C37" />
                     </VerticalStackLayout>
-                </Grid>
-            </Border>
+                </Border>
+                <Border Grid.Column="1" Padding="16" Stroke="Transparent" StrokeShape="RoundRectangle 12" BackgroundColor="#E3EFE4">
+                    <VerticalStackLayout Spacing="4">
+                        <Label Text="Próximo riego" FontSize="13" TextColor="#557360" />
+                        <Label Text="{Binding ProximoRiego}" FontSize="22" FontAttributes="Bold" TextColor="#264B35" Margin="0,5,0,0" />
+                    </VerticalStackLayout>
+                </Border>
+            </Grid>
 
             <Grid ColumnDefinitions="*,Auto">
-                <Label Text="Agenda de riego" FontSize="19" FontAttributes="Bold" TextColor="#293B30" VerticalOptions="Center" />
+                <Label Text="Riegos" FontSize="17" FontAttributes="Bold" TextColor="#293B30" VerticalOptions="Center" />
                 <Button Grid.Column="1" Text="Regar" Clicked="RiegoClicked" BackgroundColor="Transparent" TextColor="#397755" Padding="8,0" />
             </Grid>
-            <CollectionView ItemsSource="{Binding ProximosRiegos}" SelectionMode="None" HeightRequest="280">
-                <CollectionView.EmptyView>
-                    <Label Text="Aún no hay plantas en tu colección." TextColor="#718075" Padding="10" />
-                </CollectionView.EmptyView>
-                <CollectionView.ItemTemplate>
-                    <DataTemplate>
-                        <Grid ColumnDefinitions="40,*,Auto" Padding="12,10" Margin="0,0,0,7" BackgroundColor="White">
-                            <Border WidthRequest="34" HeightRequest="34" BackgroundColor="#E7F1E8" Stroke="Transparent" StrokeShape="RoundRectangle 8">
-                                <Label Text="◉" TextColor="#397755" HorizontalOptions="Center" VerticalOptions="Center" />
-                            </Border>
-                            <VerticalStackLayout Grid.Column="1" VerticalOptions="Center" Spacing="2">
-                                <Label Text="{Binding Nombre}" FontAttributes="Bold" TextColor="#2B3E31" />
-                                <Label Text="{Binding Descripcion}" FontSize="12" TextColor="#718075" />
-                            </VerticalStackLayout>
-                            <Label Grid.Column="2" Text="{Binding TextoFecha}" FontSize="12" TextColor="#397755" VerticalOptions="Center" />
-                        </Grid>
-                    </DataTemplate>
-                </CollectionView.ItemTemplate>
-            </CollectionView>
 
-            <VerticalStackLayout Spacing="5">
-                <Label Text="Estado de tu colección" FontSize="18" FontAttributes="Bold" TextColor="#293B30" />
-                <Label Text="{Binding EstadoGeneral}" TextColor="#68766C" />
+            <VerticalStackLayout Spacing="8" Margin="0,-8,0,0" BindableLayout.ItemsSource="{Binding ProximosRiegos}">
+                <BindableLayout.EmptyView>
+                    <Label Text="Toca + para añadir tu primera planta." FontSize="14" TextColor="#718075" />
+                </BindableLayout.EmptyView>
+                <BindableLayout.ItemTemplate>
+                    <DataTemplate>
+                        <Border Padding="14,12" Stroke="#E1E8E0" StrokeShape="RoundRectangle 10" BackgroundColor="White">
+                            <Grid ColumnDefinitions="*,Auto">
+                                <Label Text="{Binding Nombre}" FontAttributes="Bold" TextColor="#2B3E31" VerticalOptions="Center" />
+                                <Label Grid.Column="1" Text="{Binding TextoFecha}" FontSize="13" TextColor="#397755" VerticalOptions="Center" />
+                            </Grid>
+                        </Border>
+                    </DataTemplate>
+                </BindableLayout.ItemTemplate>
             </VerticalStackLayout>
 
-            <Button Text="Identificar una planta" Clicked="IdentificarClicked" BackgroundColor="#397A57" TextColor="White" CornerRadius="8" />
+            <Label Text="{Binding EstadoGeneral}" IsVisible="{Binding TienePlantas}" FontSize="12" TextColor="#718075" />
         </VerticalStackLayout>
     </ScrollView>
 </ContentPage>

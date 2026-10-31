@@ -2,17 +2,16 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="PlantGuard_proyecto.Views.PlantasPage"
-             Title="Mis plantas">
+             Title="Mis plantas"
+             Shell.NavBarIsVisible="False"
+             BackgroundColor="#F6F8F5">
     <Grid RowDefinitions="Auto,Auto,Auto,*" BackgroundColor="#F6F8F5">
         <Grid Padding="20,14" ColumnDefinitions="*,Auto">
-            <VerticalStackLayout Spacing="2">
-                <Label Text="Mis plantas" FontSize="25" FontAttributes="Bold" TextColor="#293B30" />
-                <Label Text="Tu colección, siempre a mano" FontSize="12" TextColor="#718075" />
-            </VerticalStackLayout>
+            <Label Text="Mis plantas" FontSize="24" FontAttributes="Bold" TextColor="#26392E" VerticalOptions="Center" />
             <Button Grid.Column="1" Text="＋" Clicked="AddPlantClicked" BackgroundColor="#397A57" TextColor="White" CornerRadius="22" WidthRequest="44" HeightRequest="44" Padding="0" />
         </Grid>
 
-        <SearchBar x:Name="searchBar" Grid.Row="1" Style="{StaticResource PlantSearchBarStyle}" Placeholder="Buscar por nombre o especie" Margin="14,0,14,8" />
+        <SearchBar x:Name="searchBar" Grid.Row="1" Style="{StaticResource PlantSearchBarStyle}" Placeholder="Buscar" Margin="14,0,14,8" />
 
         <ScrollView Grid.Row="2" Orientation="Horizontal" HorizontalScrollBarVisibility="Never">
             <HorizontalStackLayout Spacing="8" Padding="14,0,14,10">
@@ -26,9 +25,8 @@
         <CollectionView x:Name="PlantCollection" Grid.Row="3" Margin="14,0,14,10" SelectionMode="None">
             <CollectionView.EmptyView>
                 <VerticalStackLayout Padding="24" Spacing="10" VerticalOptions="Center">
-                    <Label Text="Tu colección empieza aquí" FontSize="19" FontAttributes="Bold" TextColor="#293B30" HorizontalTextAlignment="Center" />
-                    <Label Text="Añade una planta para organizar sus cuidados y riegos." TextColor="#718075" HorizontalTextAlignment="Center" />
-                    <Button Text="Añadir una planta" Clicked="AddPlantClicked" BackgroundColor="#397A57" TextColor="White" />
+                    <Label Text="Aún no hay plantas" FontSize="17" FontAttributes="Bold" TextColor="#293B30" HorizontalTextAlignment="Center" />
+                    <Button Text="Añadir planta" Clicked="AddPlantClicked" BackgroundColor="#397A57" TextColor="White" CornerRadius="8" />
                 </VerticalStackLayout>
             </CollectionView.EmptyView>
             <CollectionView.ItemTemplate>

@@ -37,9 +37,9 @@ public partial class InicioPage : ContentPage
         }
     }
 
-    private async void IdentificarClicked(object? sender, EventArgs e) => await Shell.Current.GoToAsync("//identificar");
-
     private async void MisPlantasClicked(object? sender, EventArgs e) => await Shell.Current.GoToAsync("//plantas");
+
+    private async void PlantasTapped(object? sender, TappedEventArgs e) => await Shell.Current.GoToAsync("//plantas");
 
     private async void AgregarPlantaClicked(object? sender, EventArgs e) => await Shell.Current.GoToAsync("registrar-planta");
 
