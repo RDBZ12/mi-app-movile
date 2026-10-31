@@ -19,6 +19,7 @@ public static class MauiProgram
             });
 
         builder.Services.AddSingleton<DatabaseService>();
+        builder.Services.AddSingleton<AuthService>();
         builder.Services.AddSingleton<EspecieService>();
         builder.Services.AddSingleton<PlantaService>();
         builder.Services.AddSingleton<RiegoService>();

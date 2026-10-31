@@ -8,6 +8,9 @@ public class Riego
     [PrimaryKey, AutoIncrement]
     public int IdRiego { get; set; }
 
+    [Indexed]
+    public int IdUsuario { get; set; }
+
     public string? Fecha { get; set; }
     public string? Observacion { get; set; }
 }

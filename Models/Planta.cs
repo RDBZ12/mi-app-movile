@@ -11,6 +11,9 @@ public class Planta
     [NotNull]
     public string Nombre { get; set; } = string.Empty;
 
+    [Indexed]
+    public int IdUsuario { get; set; }
+
     public int? IdEspecie { get; set; }
     public string? FechaRegistro { get; set; }
     public string? Foto { get; set; }

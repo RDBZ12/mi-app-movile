@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="PlantGuard_proyecto.Views.RegistroPage"
+             Title="Crear cuenta"
+             NavigationPage.HasNavigationBar="False"
+             BackgroundColor="#F6F8F5">
+    <ScrollView>
+        <VerticalStackLayout Padding="24,40,24,28" Spacing="22">
+
+            <VerticalStackLayout Spacing="6" HorizontalOptions="Center">
+                <Border WidthRequest="56" HeightRequest="56" BackgroundColor="#397A57" Stroke="Transparent"
+                        StrokeShape="RoundRectangle 16" HorizontalOptions="Center">
+                    <Label Text="🌱" FontSize="26" HorizontalOptions="Center" VerticalOptions="Center" />
+                </Border>
+                <Label Text="PlantGuard" FontSize="24" FontAttributes="Bold" TextColor="{StaticResource Primary}" HorizontalOptions="Center" Margin="0,6,0,0" />
+                <Label Text="TU COMPAÑERO BOTÁNICO" FontSize="10" CharacterSpacing="1.4" TextColor="#78877B" HorizontalOptions="Center" />
+            </VerticalStackLayout>
+
+            <Border Padding="18" Stroke="#E1E8E0" StrokeShape="RoundRectangle 10" BackgroundColor="White">
+                <VerticalStackLayout Spacing="14">
+                    <VerticalStackLayout Spacing="3">
+                        <Label Text="Crear cuenta" FontSize="22" FontAttributes="Bold" TextColor="#26392E" />
+                        <Label Text="Tus plantas y riegos se guardan solo en tu cuenta." TextColor="#68766C" />
+                    </VerticalStackLayout>
+
+                    <VerticalStackLayout Spacing="5">
+                        <Label Text="USUARIO" FontSize="10" CharacterSpacing="1" TextColor="#718075" />
+                        <Border Stroke="#D1D9D1" StrokeShape="RoundRectangle 8" BackgroundColor="White" Padding="12,0">
+                            <Entry x:Name="UsuarioEntry" Placeholder="Ej. manuel" PlaceholderColor="#98A49A"
+                                   TextColor="#26392E" BackgroundColor="Transparent" MaxLength="20"
+                                   ReturnType="Next" Completed="UsuarioCompleted" />
+                        </Border>
+                    </VerticalStackLayout>
+
+                    <VerticalStackLayout Spacing="5">
+                        <Label Text="CORREO" FontSize="10" CharacterSpacing="1" TextColor="#718075" />
+                        <Border Stroke="#D1D9D1" StrokeShape="RoundRectangle 8" BackgroundColor="White" Padding="12,0">
+                            <Entry x:Name="CorreoEntry" Placeholder="correo@ejemplo.com" PlaceholderColor="#98A49A"
+                                   TextColor="#26392E" BackgroundColor="Transparent" Keyboard="Email"
+                                   ReturnType="Next" Completed="CorreoCompleted" />
+                        </Border>
+                    </VerticalStackLayout>
+
+                    <VerticalStackLayout Spacing="5">
+                        <Label Text="CONTRASEÑA" FontSize="10" CharacterSpacing="1" TextColor="#718075" />
+                        <Border Stroke="#D1D9D1" StrokeShape="RoundRectangle 8" BackgroundColor="White" Padding="12,0,4,0">
+                            <Grid ColumnDefinitions="*,Auto">
+                                <Entry x:Name="PasswordEntry" Placeholder="Mínimo 6 caracteres" PlaceholderColor="#98A49A"
+                                       TextColor="#26392E" BackgroundColor="Transparent" IsPassword="True"
+                                       ReturnType="Next" Completed="PasswordCompleted" />
+                                <Button Grid.Column="1" x:Name="MostrarButton" Text="Mostrar" Clicked="MostrarClicked"
+                                        BackgroundColor="Transparent" TextColor="#397755" FontSize="12" Padding="8,0" />
+                            </Grid>
+                        </Border>
+                    </VerticalStackLayout>
+
+                    <VerticalStackLayout Spacing="5">
+                        <Label Text="CONFIRMAR CONTRASEÑA" FontSize="10" CharacterSpacing="1" TextColor="#718075" />
+                        <Border Stroke="#D1D9D1" StrokeShape="RoundRectangle 8" BackgroundColor="White" Padding="12,0">
+                            <Entry x:Name="ConfirmarEntry" Placeholder="Repite la contraseña" PlaceholderColor="#98A49A"
+                                   TextColor="#26392E" BackgroundColor="Transparent" IsPassword="True"
+                                   ReturnType="Done" Completed="ConfirmarCompleted" />
+                        </Border>
+                    </VerticalStackLayout>
+
+                    <Label x:Name="ErrorLabel" IsVisible="False" TextColor="#B3402F" FontSize="13" />
+
+                    <Button x:Name="RegistrarButton" Text="Crear cuenta" Clicked="RegistrarClicked"
+                            BackgroundColor="#397A57" TextColor="White" CornerRadius="8" HeightRequest="48" />
+                </VerticalStackLayout>
+            </Border>
+
+            <VerticalStackLayout Spacing="10">
+                <Label Text="¿Ya tienes cuenta?" TextColor="#68766C" HorizontalOptions="Center" />
+                <Button Text="Iniciar sesión" Clicked="VolverClicked" BackgroundColor="White" TextColor="#397A57"
+                        BorderColor="#397A57" BorderWidth="1" CornerRadius="8" HeightRequest="48" />
+            </VerticalStackLayout>
+
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

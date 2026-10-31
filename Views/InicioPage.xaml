@@ -5,16 +5,17 @@
              Title="Inicio">
     <ScrollView BackgroundColor="#F6F8F5">
         <VerticalStackLayout Padding="20,16,20,28" Spacing="18">
-            <Grid ColumnDefinitions="*,Auto">
+            <Grid ColumnDefinitions="*,Auto,Auto" ColumnSpacing="6">
                 <VerticalStackLayout Spacing="2">
                     <Label Text="PlantGuard" FontSize="24" FontAttributes="Bold" TextColor="{StaticResource Primary}" />
                     <Label Text="TU COMPAÑERO BOTÁNICO" FontSize="10" CharacterSpacing="1.4" TextColor="#78877B" />
                 </VerticalStackLayout>
-                <Button Grid.Column="1" Text="+" Clicked="AgregarPlantaClicked" BackgroundColor="White" TextColor="#347453" CornerRadius="22" WidthRequest="44" HeightRequest="44" Padding="0" />
+                <Button Grid.Column="1" Text="Salir" Clicked="CerrarSesionClicked" BackgroundColor="Transparent" TextColor="#78877B" FontSize="13" Padding="8,0" HeightRequest="44" />
+                <Button Grid.Column="2" Text="+" Clicked="AgregarPlantaClicked" BackgroundColor="White" TextColor="#347453" CornerRadius="22" WidthRequest="44" HeightRequest="44" Padding="0" />
             </Grid>
 
             <VerticalStackLayout Spacing="4">
-                <Label Text="Buenos días" FontSize="25" FontAttributes="Bold" TextColor="#26392E" />
+                <Label Text="{Binding Saludo}" FontSize="25" FontAttributes="Bold" TextColor="#26392E" />
                 <Label Text="¿Cómo están tus plantas hoy?" TextColor="#68766C" />
             </VerticalStackLayout>
 

@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="PlantGuard_proyecto.Views.LoginPage"
+             Title="Iniciar sesión"
+             NavigationPage.HasNavigationBar="False"
+             BackgroundColor="#F6F8F5">
+    <ScrollView>
+        <VerticalStackLayout Padding="24,56,24,28" Spacing="24">
+
+            <VerticalStackLayout Spacing="6" HorizontalOptions="Center">
+                <Border WidthRequest="68" HeightRequest="68" BackgroundColor="#397A57" Stroke="Transparent"
+                        StrokeShape="RoundRectangle 20" HorizontalOptions="Center">
+                    <Label Text="🌱" FontSize="32" HorizontalOptions="Center" VerticalOptions="Center" />
+                </Border>
+                <Label Text="PlantGuard" FontSize="28" FontAttributes="Bold" TextColor="{StaticResource Primary}" HorizontalOptions="Center" Margin="0,8,0,0" />
+                <Label Text="TU COMPAÑERO BOTÁNICO" FontSize="10" CharacterSpacing="1.4" TextColor="#78877B" HorizontalOptions="Center" />
+            </VerticalStackLayout>
+
+            <Border Padding="18" Stroke="#E1E8E0" StrokeShape="RoundRectangle 10" BackgroundColor="White">
+                <VerticalStackLayout Spacing="14">
+                    <VerticalStackLayout Spacing="3">
+                        <Label Text="Iniciar sesión" FontSize="22" FontAttributes="Bold" TextColor="#26392E" />
+                        <Label Text="Entra para ver y cuidar tus plantas." TextColor="#68766C" />
+                    </VerticalStackLayout>
+
+                    <VerticalStackLayout Spacing="5">
+                        <Label Text="USUARIO O CORREO" FontSize="10" CharacterSpacing="1" TextColor="#718075" />
+                        <Border Stroke="#D1D9D1" StrokeShape="RoundRectangle 8" BackgroundColor="White" Padding="12,0">
+                            <Entry x:Name="UsuarioEntry" Placeholder="tu usuario o correo" PlaceholderColor="#98A49A"
+                                   TextColor="#26392E" BackgroundColor="Transparent" Keyboard="Email"
+                                   ReturnType="Next" Completed="UsuarioCompleted" />
+                        </Border>
+                    </VerticalStackLayout>
+
+                    <VerticalStackLayout Spacing="5">
+                        <Label Text="CONTRASEÑA" FontSize="10" CharacterSpacing="1" TextColor="#718075" />
+                        <Border Stroke="#D1D9D1" StrokeShape="RoundRectangle 8" BackgroundColor="White" Padding="12,0,4,0">
+                            <Grid ColumnDefinitions="*,Auto">
+                                <Entry x:Name="PasswordEntry" Placeholder="Tu contraseña" PlaceholderColor="#98A49A"
+                                       TextColor="#26392E" BackgroundColor="Transparent" IsPassword="True"
+                                       ReturnType="Done" Completed="PasswordCompleted" />
+                                <Button Grid.Column="1" x:Name="MostrarButton" Text="Mostrar" Clicked="MostrarClicked"
+                                        BackgroundColor="Transparent" TextColor="#397755" FontSize="12" Padding="8,0" />
+                            </Grid>
+                        </Border>
+                    </VerticalStackLayout>
+
+                    <Label x:Name="ErrorLabel" IsVisible="False" TextColor="#B3402F" FontSize="13" />
+
+                    <Button x:Name="LoginButton" Text="Iniciar sesión" Clicked="LoginClicked"
+                            BackgroundColor="#397A57" TextColor="White" CornerRadius="8" HeightRequest="48" />
+                </VerticalStackLayout>
+            </Border>
+
+            <VerticalStackLayout Spacing="10">
+                <Label Text="¿Aún no tienes cuenta?" TextColor="#68766C" HorizontalOptions="Center" />
+                <Button Text="Crear cuenta" Clicked="CrearCuentaClicked" BackgroundColor="White" TextColor="#397A57"
+                        BorderColor="#397A57" BorderWidth="1" CornerRadius="8" HeightRequest="48" />
+            </VerticalStackLayout>
+
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

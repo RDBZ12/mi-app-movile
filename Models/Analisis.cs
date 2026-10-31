@@ -8,6 +8,9 @@ public class Analisis
     [PrimaryKey, AutoIncrement]
     public int IdAnalisis { get; set; }
 
+    [Indexed]
+    public int IdUsuario { get; set; }
+
     public int IdPlanta { get; set; }
     public string? Fecha { get; set; }
     public string? Imagen { get; set; }

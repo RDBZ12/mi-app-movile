@@ -15,7 +15,8 @@ public partial class InicioPage : ContentPage
             services.GetRequiredService<PlantaService>(),
             services.GetRequiredService<RiegoService>(),
             services.GetRequiredService<EspecieService>(),
-            services.GetRequiredService<PlantGuard_proyecto.Data.DatabaseService>());
+            services.GetRequiredService<PlantGuard_proyecto.Data.DatabaseService>(),
+            services.GetRequiredService<AuthService>());
     }
 
     protected override async void OnAppearing()
@@ -24,6 +25,15 @@ public partial class InicioPage : ContentPage
         if (BindingContext is InicioViewModel viewModel)
         {
             await viewModel.CargarAsync();
+        }
+    }
+
+    private async void CerrarSesionClicked(object? sender, EventArgs e)
+    {
+        var confirmar = await DisplayAlert("Cerrar sesión", "¿Quieres salir de tu cuenta? Tus datos quedan guardados.", "Salir", "Cancelar");
+        if (confirmar)
+        {
+            ((App)Application.Current!).CerrarSesion();
         }
     }
 

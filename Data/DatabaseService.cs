@@ -28,6 +28,7 @@ public class DatabaseService
 
     private async Task InicializarBaseAsync()
     {
+        await Connection.CreateTableAsync<Usuario>();
         await Connection.CreateTableAsync<Especie>();
         await Connection.CreateTableAsync<Planta>();
         await Connection.CreateTableAsync<PlantaFoto>();

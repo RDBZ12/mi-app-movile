@@ -12,6 +12,10 @@ public partial class InicioViewModel : ObservableObject
     private readonly RiegoService _riegoService;
     private readonly EspecieService _especieService;
     private readonly DatabaseService _databaseService;
+    private readonly AuthService _authService;
+
+    [ObservableProperty]
+    private string saludo = "Hola";
 
     [ObservableProperty]
     private int plantasCount;
@@ -27,8 +31,9 @@ public partial class InicioViewModel : ObservableObject
 
     public IAsyncRelayCommand CargarAsyncCommand { get; }
 
-    public InicioViewModel(PlantaService plantaService, RiegoService riegoService, EspecieService especieService, DatabaseService databaseService)
+    public InicioViewModel(PlantaService plantaService, RiegoService riegoService, EspecieService especieService, DatabaseService databaseService, AuthService authService)
     {
+        _authService = authService;
         _plantaService = plantaService;
         _riegoService = riegoService;
         _especieService = especieService;
@@ -39,6 +44,7 @@ public partial class InicioViewModel : ObservableObject
     public async Task CargarAsync()
     {
         await _databaseService.InicializarAsync();
+        Saludo = $"Hola, {_authService.NombreUsuarioActual}";
         var plantas = await _plantaService.GetPlantasAsync();
         var especies = await _especieService.GetEspeciesAsync();
         foreach (var planta in plantas)
